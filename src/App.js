@@ -1,3 +1,4 @@
+import List from './components/List';
 
 function App() {
   return (
@@ -5,6 +6,7 @@ function App() {
       <h1>
         Hello World!
       </h1>
+      <List />
     </div>
   );
 }

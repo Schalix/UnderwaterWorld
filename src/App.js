@@ -1,12 +1,23 @@
 import List from './components/List';
+import { FishdataContextProvider } from './context/fishdataContext'
+
+const Wrapper = ({ children }) => (
+  <div>
+    <h1>Catchy Title</h1>
+    <div>{children}</div>
+    <h2>footer</h2>
+  </div>
+);
+
 
 function App() {
   return (
     <div>
-      <h1>
-        Hello World!
-      </h1>
-      <List />
+      <FishdataContextProvider>
+        <Wrapper>
+          <List />
+        </Wrapper>
+      </FishdataContextProvider>
     </div>
   );
 }

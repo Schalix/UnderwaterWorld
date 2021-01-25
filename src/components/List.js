@@ -25,11 +25,11 @@ const List = () => {
 
     return (
         <div>
-            {data ? data.map((item, index) => {
+            {fishdata ? fishdata.map((item, index) => {
                 return (
                     <ListItem item={item} />
-                )}
-            )} : <h2>Loading...</h2>
+                )
+            }) : <h2>Loading...</h2>}
         </div>
         
     )

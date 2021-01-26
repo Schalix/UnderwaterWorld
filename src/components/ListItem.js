@@ -17,7 +17,7 @@ const ListItem = ({ item }) => {
             <div>
                 {/* <div dangerouslySetInnerHTML={{ __html: item["Image Gallery"] }} /> */}
                 {/* generates array of the property of object. now: does that array include the property we are looking for*/}
-               {Object.keys(item).includes("Image Gallery")  &&  <img src={item["Image Gallery"][0].src} width='100%'/> }
+                {item["Image Gallery"] != null && item["Image Gallery"][0] && <img src={item["Image Gallery"][0].src} heigth="100px" width='100%' />}
             </div>
         </div>
     )

@@ -1,6 +1,7 @@
 import React from 'react';
 
 const ListItem = ({ item }) => {
+    console.log(item["Image Gallery"] )
     return (
         <div>
             {/* Solution for html in my data: <div dangerouslySetInnerHTML={html} /> .... Dangerous because you can access xss, malitious code...*/}
@@ -13,7 +14,11 @@ const ListItem = ({ item }) => {
                 <div>Habitat: </div>
                 <div dangerouslySetInnerHTML={{ __html: item["Habitat"] }} />
             </div>
-            
+            <div>
+                {/* <div dangerouslySetInnerHTML={{ __html: item["Image Gallery"] }} /> */}
+                {/* generates array of the property of object. now: does that array include the property we are looking for*/}
+               {Object.keys(item).includes("Image Gallery")  &&  <img src={item["Image Gallery"][0].src} width='100%'/> }
+            </div>
         </div>
     )
 }

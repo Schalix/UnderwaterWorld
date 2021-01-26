@@ -9,7 +9,7 @@ const List = () => {
         <div>
             {fishdata ? fishdata.map((item, index) => {
                 return (
-                    <ListItem item={item} />
+                    <ListItem key={index} item={item} />
                 )
             }) : <h2>Loading...</h2>}
         </div>

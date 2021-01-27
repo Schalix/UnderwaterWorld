@@ -33,11 +33,25 @@ export const FishdataContextProvider = ({ children }) => {
 
     //check how fishdata looks like (printing outside of fetch-function ;)
     console.log('fishdata', fishdata)
+
+    const fishDataContextProviderHelper = () => {
+        return (
+            <FishdataContext.Provider value={{ fishdata, clearFishdata }}>
+                {children}
+            </FishdataContext.Provider>
+        )
+    }
+    const empty = () => {
+        return (
+            <div></div>
+        )
+    }
     
     return (
-        <FishdataContext.Provider value={{ fishdata, clearFishdata }}>
-            {children}
-        </FishdataContext.Provider>
+        <div>
+            { fishdata ? fishDataContextProviderHelper()    
+                    : <h2>Loading...</h2> 
+            }
+        </div>
     )
-
 }

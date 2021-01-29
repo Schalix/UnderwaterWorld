@@ -1,7 +1,13 @@
+//next step: continue here: source: https://react-bootstrap.github.io/getting-started/introduction
+
 import Home from './components/Home'
 import List from './components/List';
-import { FishdataContextProvider } from './context/fishdataContext'
 
+import { FishdataContextProvider } from './context/fishdataContext'
+//React Bootstrap: some CSS-file is required. (source: https://react-bootstrap.github.io/getting-started/introduction)
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+//import this so that Router (connection between "pages")
 import {
   BrowserRouter as Router,
   Switch,

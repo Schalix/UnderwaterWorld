@@ -15,6 +15,11 @@ const Header = () => {
                 Log In
                 </Nav.Link>
             </Nav.Item>
+            <Nav.Item>
+                <Nav.Link eventKey="disabled" disabled>
+                Chat
+                </Nav.Link>
+            </Nav.Item>
         </Nav>
     )
 }

@@ -6,14 +6,14 @@ const ListItem = ({ item }) => {
         <div>
             {/* Solution for html in my data: <div dangerouslySetInnerHTML={html} /> .... Dangerous because you can access xss, malitious code...*/}
             <div>
-                <h3>Species Name: </h3>
+                {/* <h3>Species Name: </h3> */}
                 {/* CURLY BRACES: first curly braces: this will be JS, second curly braces: this will an object. */}
                 <div dangerouslySetInnerHTML={{ __html: item["Species Name"] }} />
             </div>
-            <div>
+            {/* <div>
                 <div>Habitat: </div>
                 <div dangerouslySetInnerHTML={{ __html: item["Habitat"] }} />
-            </div>
+            </div> */}
             <div>
                 {/* <div dangerouslySetInnerHTML={{ __html: item["Image Gallery"] }} /> */}
                 {/* generates array of the property of object. now: does that array include the property we are looking for*/}

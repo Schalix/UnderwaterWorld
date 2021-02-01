@@ -13,7 +13,7 @@ const List = () => {
         <div>
             { ! loading ? fishdata.map((item, index) => {
                 return (
-                    // Key is unique for every item. give one to every item, for example by using id, if API provides. Now we just use the index. 
+                    // Key is unique for every item. give one to every item, for example by using id, if API provides. Now we just use the index.
                     <ListItem key={index} item={item} />
                 )
             }) : <h2>Loading...</h2>}

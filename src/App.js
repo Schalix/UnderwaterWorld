@@ -3,6 +3,9 @@
 //1. make background from dark blue at the bottom to light blue on top.
 //2. find symbol (fish)
 
+// - clean up according to warnings
+// - ListItem: delete 
+
 
 import Home from './components/Home'
 import List from './components/List'
@@ -40,6 +43,7 @@ function App() {
         <FishdataContextProvider>
           <Switch>
             <Route exact path="/">
+              <Header />
               <Home />
             </Route>
             <Route exact path ="/List">

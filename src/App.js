@@ -39,17 +39,15 @@ const Wrapper = ({ children }) => (
 function App() {
   return (
     <div>
+          <Header />
       <Router>
         <FishdataContextProvider>
           <Switch>
             <Route exact path="/">
-              <Header />
               <Home />
             </Route>
             <Route exact path ="/List">
-              <Wrapper>
                 <List />
-              </Wrapper>
             </Route>         
           </Switch>
         </FishdataContextProvider>    

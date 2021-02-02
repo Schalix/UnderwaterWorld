@@ -1,0 +1,23 @@
+.Header {
+    font-family: sans-serif;
+    text-align: center;
+}
+
+nav .navbar-collapse {
+    position: fixed;
+    top: 56px;
+    background: #343a40;
+    right: -100%;
+    width: 8rem;
+    height: 11rem;
+    display: block;
+    transition: right 0.3s ease;
+}
+
+nav .navbar-collapse.show {
+    right: 0;
+}
+
+nav .nav-link {
+    margin-left: 10px;
+}

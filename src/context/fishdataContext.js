@@ -1,5 +1,5 @@
-import React, {createContext, useState, useEffect} from 'react'
-
+import React, { createContext, useState, useEffect } from 'react'
+import axios from "axios"
 const initContext = {
     fishdata: [],
     clearFishdata: () => {
@@ -19,17 +19,22 @@ export const FishdataContextProvider = ({ children }) => {
     useEffect(() => {
         fetchData()
     }, [])
-    
-     //fetch data asynchronously
+
+    //fetch data asynchronously
     const fetchData = async () => {
-            setLoading(true)
-            //workaround for fetching data with backend of cab
-            const response = await fetch("https://cab-cors-anywhere.herokuapp.com/https://www.fishwatch.gov/api/species/")
-            const data = await response.json()
-            setLoading(false)
-            console.log('data', data)
-             //update variable fishdata
-            setFishdata(data)
+
+        var config = {
+            method: 'get',
+            url: 'www.marinespecies.org/rest/AphiaRecordsByDate?startdate=1900-02-02T10%3A36%3A22%2B00%3A00&enddate=2021-02-02T10%3A36%3A22%2B00%3A00&marine_only=true&offset=1',
+        };
+
+        axios(config)
+            .then(function (response) {
+                console.log(JSON.stringify(response.data));
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
     }
 
     const clearFishdata = () => {
@@ -37,11 +42,11 @@ export const FishdataContextProvider = ({ children }) => {
     }
 
     //check how fishdata looks like (printing outside of fetch-function ;)
-    console.log('fishdata', fishdata)
+    console.log('fishdata new', fishdata)
 
-        return (
-            <FishdataContext.Provider value={{ fishdata, clearFishdata, loading }}>
-                {children}
-            </FishdataContext.Provider>
-        )
+    return (
+        <FishdataContext.Provider value={{ fishdata, clearFishdata, loading }}>
+            {children}
+        </FishdataContext.Provider>
+    )
 }

@@ -22,10 +22,11 @@ export const FishdataContextProvider = ({ children }) => {
 
     //fetch data asynchronously
     const fetchData = async () => {
+        setLoading(true)
         const response = await fetch("https://www.marinespecies.org/rest/AphiaRecordsByDate?startdate=1900-02-02T10%3A36%3A22%2B00%3A00&enddate=2021-02-02T10%3A36%3A22%2B00%3A00&marine_only=true&offset=1")
         const data = await response.json()
+        setLoading(false)
         setFishdata(data)
-
     }
 
     const clearFishdata = () => {

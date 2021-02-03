@@ -5,7 +5,7 @@ const ListItem = ({ item }) => {
     return (
         <div>
             <div>
-                <h1>Species: {item.scientificname}</h1>
+                <h3>Species: {item.scientificname}</h3>
             </div>
         </div>
         // <div>

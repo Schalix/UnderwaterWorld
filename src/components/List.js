@@ -11,7 +11,7 @@ const List = () => {
     console.log('fishdata in components :>>', fishdata)
     return (
         <div>
-            { ! loading ? fishdata.map((item, index) => {
+            { !loading ? fishdata.map((item, index) => {
                 return (
                     // Key is unique for every item. give one to every item, for example by using id, if API provides. Now we just use the index.
                     <ListItem key={index} item={item} />

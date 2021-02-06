@@ -36,8 +36,9 @@ export default function Header() {
           </NavDropdown> */}
         </Nav>
         <Nav>
-          <Nav.Link href="#deets">Log-in</Nav.Link>
-          <Nav.Link eventKey={2} href="#memes">
+          <Nav.Link href="/Register">Register</Nav.Link>
+          <Nav.Link href="/LogInPage">Log-in</Nav.Link>
+          <Nav.Link eventKey={2} href="Chat">
             Chat
           </Nav.Link>
         </Nav>

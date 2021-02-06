@@ -6,17 +6,14 @@ const ListItem = ({ item }) => {
 
     }
     return (
-        <div>
             <div>
-                {item.scientificname != null &&
+                {item.scientificname &&
                     <div>
                         <h3>Species: {item.scientificname}</h3>
-                        <button variant="secondary">Details</button>
+                        <button onClick="" variant="secondary">Details</button>
                     </div>
                 }
-
             </div>
-        </div>
     )
 }
 

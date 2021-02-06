@@ -6,15 +6,26 @@ import {
     Link
 } from "react-router-dom";
 
+import underwaterFishH from '../media/underwaterFishH.jpg';
+
+//put it outside of function, so App uses less memory. 
+// const styleBackground = {
+//     //string concatenation:
+//     // backgroundImage: 'url(' + underwaterFishH + ')',
+//     //$ means: templating
+//     backgroundImage: `url(${underwaterFishH})`,
+//     // backgroundImgUrl: underwaterFishH,
+
+//     // webkitTransform: 'rotate(90deg)',
+//     // backgroundimage: {
+//     //     transform: [{ rotate: '90deg' }]
+//     // }
+// }
+
+
 const MainContent = () => {
 
-    const styleBackground = {
-        backgroundImage: 'url("https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.m1BXYm1FT1DZBSKvZL31YQHaD1%26pid%3DApi&f=1")',
-        // webkitTransform: 'rotate(90deg)',
-        // backgroundimage: {
-        //     transform: [{ rotate: '90deg' }]
-        // }
-    }
+    
 
     const styleBefore = {
         // content: '',
@@ -28,7 +39,8 @@ const MainContent = () => {
     }
 
     return (
-        <div style={styleBackground}>
+        <div>
+            {/* style={styleBackground} */}
             <h1>Welcome to Marine Species!</h1>
             <Link to="/List">Discover more</Link>
             {/* <button>Discover</button> */}

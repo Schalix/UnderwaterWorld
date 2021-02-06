@@ -1,16 +1,24 @@
 import React, { createContext, useState, useEffect } from 'react'
-import axios from "axios"
+
 const initContext = {
     fishdata: [],
     clearFishdata: () => {
         throw new Error('clearFishdata() not implemented')
     },
+
+    fishdatadet: [],
+    clearFishdataDet: () => {
+        throw new Error ('clearFishdataDet() not implemented')
+    }
 }
 
 export const FishdataContext = createContext(initContext)
+export const FishdataDetContext = createContext(initContext)
+
 
 export const FishdataContextProvider = ({ children }) => {
-    const [fishdata, setFishdata] = useState(initContext.fishdata)
+    const [fishdata, setFishdata] = useState(initContext.fishdata);
+    const [fishdatadet, setFishdataDet] = useState(initContext.fishdatadet);
 
     //by default data is not loading, stat-variable default false
     const [loading, setLoading] = useState(false)
@@ -29,6 +37,14 @@ export const FishdataContextProvider = ({ children }) => {
         setFishdata(data)
     }
 
+     const fetchDataDetails = async (AphiaID) => {
+        setLoading(true)
+        const response = await fetch(`www.marinespecies.org/rest/AphiaRecordByAphiaID/${AphiaID}`)
+        const data = await response.json()
+        setLoading(false)
+        setFishdataDet(data)
+    }
+
     const clearFishdata = () => {
         setFishdata([])
     }
@@ -37,7 +53,7 @@ export const FishdataContextProvider = ({ children }) => {
     console.log('fishdata new', fishdata)
 
     return (
-        <FishdataContext.Provider value={{ fishdata, clearFishdata, loading }}>
+        <FishdataContext.Provider value={{ fishdata, fishdatadet, clearFishdata, loading, fetchDataDetails }}>
             {children}
         </FishdataContext.Provider>
     )

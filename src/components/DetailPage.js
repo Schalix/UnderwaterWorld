@@ -12,7 +12,8 @@ const DetailPage = () => {
     return (
         <div>
             { !loading ? 
-                    <ListItem key={index} item={item} />
+                    <div>Test DetailPage</div>
+                    // <ListItem key={index} item={item} />
                 )
             }) : <h2>Loading...</h2>}
         </div>

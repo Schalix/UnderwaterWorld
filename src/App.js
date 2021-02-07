@@ -2,8 +2,9 @@
 import Home from './components/Home'
 import List from './components/List'
 import Header from './components/Header'
-import LogInContent from './components/LogInPage'
+import LogInContent from './auth/LogInPage'
 import RegisterContent from './auth/Register'
+import { AuthContextProvider } from './context/authContext'
 
 import { FishdataContextProvider } from './context/fishdataContext'
 //React Bootstrap: some CSS-file is required. (source: https://react-bootstrap.github.io/getting-started/introduction)
@@ -42,22 +43,24 @@ function App() {
       {/* style={styleBackground} */}
       <Header />
       <Router>
-        <FishdataContextProvider>
-          <Switch>
-            <Route exact path="/">
-              <Home />
-            </Route>
-            <Route exact path="/List">
-              <List />
-            </Route>
+        <AuthContextProvider>
+          <FishdataContextProvider>
+            <Switch>
+              <Route exact path="/">
+                <Home />
+              </Route>
+              <Route exact path="/List">
+                <List />
+              </Route>
               <Route exact path="/Register">
                 <RegisterContent />
               </Route>
               <Route exact path="/LogInPage">
                 <LogInContent />
               </Route>
-          </Switch>
-        </FishdataContextProvider>
+            </Switch>
+          </FishdataContextProvider>
+        </AuthContextProvider>
       </Router>
     </div>
   );

@@ -1,12 +1,9 @@
 import React from 'react'
 import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
     Link
 } from "react-router-dom";
 
-import underwaterFishH from '../media/underwaterFishH.jpg';
+// import underwaterFishH from '../media/underwaterFishH.jpg';
 
 //put it outside of function, so App uses less memory. 
 // const styleBackground = {
@@ -25,18 +22,16 @@ import underwaterFishH from '../media/underwaterFishH.jpg';
 
 const MainContent = () => {
 
-    
-
-    const styleBefore = {
-        // content: '',
-        // position: 'absolute',
-        // width: '200%',
-        // height: '200%',
-        // top: '-50%',
-        // left: '-50%',
-        // z-index: '-1',
-        // background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/123941/background.png) 0 0 repeat;
-    }
+    // const styleBefore = {
+    //     // content: '',
+    //     // position: 'absolute',
+    //     // width: '200%',
+    //     // height: '200%',
+    //     // top: '-50%',
+    //     // left: '-50%',
+    //     // z-index: '-1',
+    //     // background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/123941/background.png) 0 0 repeat;
+    // }
 
     return (
         <div>

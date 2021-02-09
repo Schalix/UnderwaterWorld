@@ -1,6 +1,7 @@
 // Next step: details page
 import Home from './components/Home'
 import List from './components/List'
+import DetailPage from './components/DetailPage'
 import Header from './components/Header'
 import LogInContent from './auth/LogInPage'
 import RegisterContent from './auth/Register'
@@ -51,6 +52,9 @@ function App() {
               </Route>
               <Route exact path="/List">
                 <List />
+              </Route>
+              <Route exact path="/List/:AphiaID">
+                <DetailPage />
               </Route>
               <Route exact path="/Register">
                 <RegisterContent />

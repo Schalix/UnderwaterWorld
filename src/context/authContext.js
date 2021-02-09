@@ -6,6 +6,7 @@ import firebase from '../firebaseConfig'
 
 //error messages
 const initContext = {
+    //initial state for our context: (we dont want initial states to be empty)
     user: null,
     login: () => {
         throw new Error('login() not implemented')
@@ -30,19 +31,20 @@ export const AuthContextProvider = ({ children }) => {
             .then((userCredential) => {
                 // Signed in 
                 let user = userCredential.user;
-                console.log('user', user) 
+                console.log('user', user)
                 
                 setUser(user)
                 setIsAuthenticated(true)
-
-                .then(function () {
-                        console.log("Document successfully written!");
-                    })
-                .catch(function (error) {
-                        console.error("Error writing user document: ", error);
-                });
-
             })
+
+                // .then(function () {
+                //         console.log("Document successfully written!");
+                //     })
+                // .catch(function (error) {
+                //         console.error("Error writing user document: ", error);
+                // });
+
+    
             .catch((error) => {
                 let errorCode = error.code;
                 let errorMessage = error.message;

@@ -6,7 +6,7 @@ const ListItem = ({ item }) => {
     const history = useHistory()
     const handleOnClick = () => {
         //href will reload the page. history.push does not. call history functionality from react router. push-function can change URL to whatever I say
-        history.push(`/List/${item.AphiaID}`)
+        history.push(`/Details/${item.AphiaID}`)
     }
     return (
             <div>

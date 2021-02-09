@@ -50,10 +50,10 @@ function App() {
               <Route exact path="/">
                 <Home />
               </Route>
-              <Route exact path="/List">
+              <Route exact path="/Species">
                 <List />
               </Route>
-              <Route exact path="/List/:AphiaID">
+              <Route exact path="/Details/:scientificname">
                 <DetailPage />
               </Route>
               <Route exact path="/Register">

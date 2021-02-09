@@ -22,7 +22,7 @@ export default function Header() {
       <Navbar.Collapse id="responsive-navbar-nav">
         <Nav className="mr-auto">
           <Nav.Link href="/">Home</Nav.Link>
-          <Nav.Link href="List">Species</Nav.Link>
+          <Nav.Link href="Species">Species</Nav.Link>
           {/* <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
             <NavDropdown.Item href="#action/3.1">Species</NavDropdown.Item>
             <NavDropdown.Item href="#action/3.2">

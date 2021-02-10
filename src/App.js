@@ -53,7 +53,7 @@ function App() {
               <Route exact path="/Species">
                 <List />
               </Route>
-              <Route exact path="/Details/:scientificname">
+              <Route exact path="/Details/:id">
                 <DetailPage />
               </Route>
               <Route exact path="/Register">

@@ -8,26 +8,41 @@ const DetailPage = () => {
     // destructuring. get data from Context (where it is being fetched)
     const { fishdatadet, loading } = useContext(FishdataContext)
     const value = useContext(FishdataContext)
-    console.log(value)
-    console.log('fishdatadet in components :>>', fishdatadet)
+    // console.log(value)
+    // console.log('fishdatadet in components :>>', fishdatadet)
     //has to match with Router. what I call it there
-    let { scientificname } = useParams();
-    console.log('name:>>', scientificname);
+    let { id } = useParams();
+    // console.log('name:>>', id);
+    // console.log('fishdatadet:', fishdatadet)
 
     return (
         <div>
-            { !loading ? <h1>Scientific Name: {scientificname} </h1>
+            { !loading ? <div><div>Scientific Names:</div>
+                    {fishdatadet.scientificname &&
+                        <h3>Species: {fishdatadet.scientificname}</h3>
+                }
+                {fishdatadet.rank && 
+                        <p>Rank: {fishdatadet.rank}</p>}
+                
+                {/* {fishdatadet.map((item, index) => {
+                    return (
+                        // Key is unique for every item. give one to every item, for example by using id, if API provides. Now we just use the index.
+                        <DetailItem key={index} item={item} />
+                    )
+                })} */}
+                </div>
+
+                // <h1>Scientific Name: {id} </h1>
                     // <ListItem key={index} item={item} />
-             : <h2>Loading...</h2>}
+              : <h2>Loading...</h2>}
+                
+                
         </div>
     )
 }
 
-// fishdatadet.map((item, index) => {
-//                 return (
-//                     // Key is unique for every item. give one to every item, for example by using id, if API provides. Now we just use the index.
-//                     <DetailItem key={index} item={item} />
-//                 )
-//             })
 
+            
+
+            console.log('Detail Page:', DetailPage)
 export default DetailPage 

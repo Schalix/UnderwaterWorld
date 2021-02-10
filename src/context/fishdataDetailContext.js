@@ -20,11 +20,16 @@ export const FishdataDetContextProvider = ({ children }) => {
         fetchData()
     }, [])
 
+    useEffect(() => {
+        fetchDataDetails()
+    }, [])
+
     //fetch data asynchronously
     const fetchDataDetails = async () => {
         setLoading(true)
-        const response = await fetch(`www.marinespecies.org/rest/AphiaRecordByAphiaID/${AphiaID}`)
-        const data = await response.json()
+        const response = await fetch('http://www.marinespecies.org/rest/AphiaRecordByAphiaID/223899')
+        const data = await response.text()
+        console.log('data:', data)
         setLoading(false)
         setFishdataDet(data)
     }

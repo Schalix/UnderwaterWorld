@@ -37,7 +37,7 @@ const MainContent = () => {
         <div>
             {/* style={styleBackground} */}
             <h1>Welcome to Marine Species!</h1>
-            <Link to="/List">Discover more</Link>
+            <Link to="/Species">Discover more</Link>
             {/* <button>Discover</button> */}
         </div>
     )

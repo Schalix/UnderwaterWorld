@@ -1,4 +1,5 @@
 import React, { createContext, useState, useEffect } from 'react'
+import { useParams } from 'react-router-dom'
 
 const initContext = {
     fishdata: [],
@@ -20,6 +21,8 @@ export const FishdataContextProvider = ({ children }) => {
     const [fishdata, setFishdata] = useState(initContext.fishdata);
     const [fishdatadet, setFishdataDet] = useState(initContext.fishdatadet);
 
+    // console.log('id: ', id)
+
     //by default data is not loading, stat-variable default false
     const [loading, setLoading] = useState(false)
 
@@ -29,9 +32,7 @@ export const FishdataContextProvider = ({ children }) => {
         fetchData()
     }, [])
 
-    useEffect(() => {
-        fetchDataDetails()
-    }, [])
+   
 
     //fetch data asynchronously
     const fetchData = async () => {
@@ -42,9 +43,9 @@ export const FishdataContextProvider = ({ children }) => {
         setFishdata(data)
     }
 
-     const fetchDataDetails = async () => {
+    const fetchDataDetails = async (id) => {
         setLoading(true)
-         const response = await fetch('https://www.marinespecies.org/rest/AphiaRecordByAphiaID/168508')
+         const response = await fetch(`https://www.marinespecies.org/rest/AphiaRecordByAphiaID/${id}`)
          const data = await response.json()
          //  www.marinespecies.org/rest/AphiaRecordByAphiaID/${item.AphiaID}
         console.log('data', data)

@@ -1,5 +1,4 @@
 import React, { createContext, useState, useEffect } from 'react'
-import { useParams } from 'react-router-dom'
 
 const initContext = {
     fishdata: [],
@@ -47,8 +46,6 @@ export const FishdataContextProvider = ({ children }) => {
         setLoading(true)
          const response = await fetch(`https://www.marinespecies.org/rest/AphiaRecordByAphiaID/${id}`)
          const data = await response.json()
-         //  www.marinespecies.org/rest/AphiaRecordByAphiaID/${item.AphiaID}
-        console.log('data', data)
         setLoading(false)
          setFishdataDet(data)
      
@@ -57,9 +54,6 @@ export const FishdataContextProvider = ({ children }) => {
     const clearFishdata = () => {
         setFishdata([])
     }
-
-    //check how fishdata looks like (printing outside of fetch-function ;)
-    // console.log('fishdata new', fishdata)
 
     return (
         <FishdataContext.Provider value={{ fishdata, fishdatadet, clearFishdata, loading, fetchDataDetails }}>

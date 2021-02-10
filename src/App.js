@@ -16,26 +16,14 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
 } from "react-router-dom";
 
-import underwaterFishH from './media/underwaterFishH.jpg';
-
-//main home page:
-// Wrapper useful when: example: stable styling, just main changes. Here I can get rid of it. 
-const Wrapper = ({ children }) => (
-  <div>
-    <Header />
-    <h1>Catchy Title</h1>
-    <div>{children}</div>
-    <h2>footer</h2>
-  </div>
-);
+// import underwaterFishH from './media/underwaterFishH.jpg';
 
 //   backgroundImage: `url(${underwaterFishH})`,
 //   height: '100vh'
 //   //background position cover...
-// }
+
 
 //entire App with all pages:
 function App() {

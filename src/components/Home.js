@@ -12,11 +12,6 @@ import {
 //     //$ means: templating
 //     backgroundImage: `url(${underwaterFishH})`,
 //     // backgroundImgUrl: underwaterFishH,
-
-//     // webkitTransform: 'rotate(90deg)',
-//     // backgroundimage: {
-//     //     transform: [{ rotate: '90deg' }]
-//     // }
 // }
 
 
@@ -38,7 +33,6 @@ const MainContent = () => {
             {/* style={styleBackground} */}
             <h1>Welcome to Marine Species!</h1>
             <Link to="/Species">Discover more</Link>
-            {/* <button>Discover</button> */}
         </div>
     )
 }

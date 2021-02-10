@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from 'react'
+import React, { useContext } from 'react'
 import { FishdataContext } from '../context/fishdataContext'
 import ListItem from './ListItem'
 
@@ -6,9 +6,6 @@ import ListItem from './ListItem'
 const List = () => {
     // destructuring. get data from Context (where it is being fetched)
     const { fishdata, loading } = useContext(FishdataContext)
-    const value = useContext(FishdataContext)
-    console.log(value)
-    console.log('fishdata in components :>>', fishdata)
     return (
         <div>
             { !loading ? fishdata.map((item, index) => {

@@ -22,8 +22,8 @@ export const AuthContextProvider = ({ children }) => {
 
     const [user, setUser] = useState(null)
     const [isAuthenticated, setIsAuthenticated] = useState(false)
-    let history = useHistory()
-    const database = firebase.firestore();
+    // let history = useHistory()
+    // const database = firebase.firestore();
 
     const register = ({ email, password, name }) => {
         //register with email and password
@@ -46,28 +46,28 @@ export const AuthContextProvider = ({ children }) => {
 
     
             .catch((error) => {
-                let errorCode = error.code;
+                // let errorCode = error.code;
                 let errorMessage = error.message;
                 console.log('error creating user:>>', errorMessage)
             });
     }
 
-    const login = async ({ email, password }) => {
-        firebase.auth().signInWithEmailAndPassword(email, password)
-            .then((userCredential) => {
-                // Signed in
-                const user = userCredential.user;
-                console.log('user', user)
-                setUser(user)
-                setIsAuthenticated(true)
-            })
-            .catch((error) => {
-                var errorCode = error.code;
-                var errorMessage = error.message;
-                console.log('errorMessage', errorMessage)
-            });
-        //use login function to get the user and sve it in store
-    }
+    // const login = async ({ email, password }) => {
+    //     firebase.auth().signInWithEmailAndPassword(email, password)
+    //         .then((userCredential) => {
+    //             // Signed in
+    //             const user = userCredential.user;
+    //             console.log('user', user)
+    //             setUser(user)
+    //             setIsAuthenticated(true)
+    //         })
+    //         .catch((error) => {
+    //             // var errorCode = error.code;
+    //             var errorMessage = error.message;
+    //             console.log('errorMessage', errorMessage)
+    //         });
+    //     //use login function to get the user and sve it in store
+    // }
 
 
 return (

@@ -52,22 +52,22 @@ export const AuthContextProvider = ({ children }) => {
             });
     }
 
-    // const login = async ({ email, password }) => {
-    //     firebase.auth().signInWithEmailAndPassword(email, password)
-    //         .then((userCredential) => {
-    //             // Signed in
-    //             const user = userCredential.user;
-    //             console.log('user', user)
-    //             setUser(user)
-    //             setIsAuthenticated(true)
-    //         })
-    //         .catch((error) => {
-    //             // var errorCode = error.code;
-    //             var errorMessage = error.message;
-    //             console.log('errorMessage', errorMessage)
-    //         });
-    //     //use login function to get the user and sve it in store
-    // }
+    const login = async ({ email, password }) => {
+        firebase.auth().signInWithEmailAndPassword(email, password)
+            .then((userCredential) => {
+                // Signed in
+                const user = userCredential.user;
+                console.log('user', user)
+                setUser(user)
+                setIsAuthenticated(true)
+            })
+            .catch((error) => {
+                // var errorCode = error.code;
+                var errorMessage = error.message;
+                console.log('errorMessage', errorMessage)
+            });
+        //use login function to get the user and sve it in store
+    }
 
 
 return (

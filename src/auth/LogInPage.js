@@ -14,20 +14,21 @@ const LogInContent = () => {
 
     const handleOnSubmit = (event) => {
         event.preventDefault();
+        console.log('Login Authstate: ', state)
         login(state)
     }
 
     return (
         <div>
-            <h1>LOG IN</h1>
+            <h1>log-in</h1>
             <Form onSubmit={handleOnSubmit}>
                 <Form.Group controlId="formBasicEmail">
                     <Form.Label>Email address</Form.Label>
-                    <Form.Control type="email" placeholder="Enter email" onChange={handleChange} value={state.email} />
+                    <Form.Control type="email" placeholder="Enter email" onChange={handleChange} value={state.email} name="email"/>
                 </Form.Group>
                 <Form.Group controlId="formBasicPassword">
                     <Form.Label>Password</Form.Label>
-                    <Form.Control type="password" placeholder="Password" onChange={handleChange} value={state.password} />
+                    <Form.Control type="password" placeholder="Password" onChange={handleChange} value={state.password} name="password"/>
                 </Form.Group>
                 <Button variant="primary" type="submit">
                     Log In

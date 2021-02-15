@@ -22,8 +22,8 @@ export const AuthContextProvider = ({ children }) => {
 
     const [user, setUser] = useState(null)
     const [isAuthenticated, setIsAuthenticated] = useState(false)
-    // let history = useHistory()
-    // const database = firebase.firestore();
+    let history = useHistory()
+    const db = firebase.firestore();
 
     const register = ({ email, password, name }) => {
         //register with email and password
@@ -35,21 +35,23 @@ export const AuthContextProvider = ({ children }) => {
                 
                 setUser(user)
                 setIsAuthenticated(true)
+                db.collection("users").doc(user.uid).set({
+                    name, 
+                    // favourites: []
+                })
+                .then(function () {
+                        console.log("Document successfully written!");
+                    })
+                .catch(function (error) {
+                        console.error("Error writing user document: ", error);
+                });
             })
-
-                // .then(function () {
-                //         console.log("Document successfully written!");
-                //     })
-                // .catch(function (error) {
-                //         console.error("Error writing user document: ", error);
-                // });
-
     
             .catch((error) => {
                 // let errorCode = error.code;
                 let errorMessage = error.message;
                 console.log('error creating user:>>', errorMessage)
-            });
+            })
     }
 
     const login = async ({ email, password }) => {

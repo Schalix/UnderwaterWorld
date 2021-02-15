@@ -64,8 +64,8 @@ export const AuthContextProvider = ({ children }) => {
                 setIsAuthenticated(true)
             })
             .catch((error) => {
-                // var errorCode = error.code;
-                var errorMessage = error.message;
+                // let errorCode = error.code;
+                let errorMessage = error.message;
                 console.log('errorMessage', errorMessage)
             });
         //use login function to get the user and sve it in store
@@ -73,7 +73,7 @@ export const AuthContextProvider = ({ children }) => {
 
 
 return (
-    <AuthContext.Provider value={{ user, register, isAuthenticated }}>
+    <AuthContext.Provider value={{ user, register, login, isAuthenticated }}>
         {children}
     </AuthContext.Provider>
 )

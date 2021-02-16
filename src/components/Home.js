@@ -1,7 +1,8 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import {
     Link
 } from "react-router-dom";
+import { AuthContext } from '../context/authContext'
 
 // import underwaterFishH from '../media/underwaterFishH.jpg';
 
@@ -16,6 +17,7 @@ import {
 
 
 const MainContent = () => {
+    const { isAuthenticated, user } = useContext(AuthContext)
 
     // const styleBefore = {
     //     // content: '',
@@ -31,7 +33,8 @@ const MainContent = () => {
     return (
         <div>
             {/* style={styleBackground} */}
-            <h1>Welcome to Marine Species!</h1>
+            {isAuthenticated && <h1>Hello {user.displayName}</h1>}
+            <h2>Welcome to Marine Species!</h2>
             <Link to="/Species">Discover more</Link>
         </div>
     )

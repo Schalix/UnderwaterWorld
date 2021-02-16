@@ -26,9 +26,6 @@ export default function Header() {
         <Nav>
           <Nav.Link href="/Register">Register</Nav.Link>
           <Nav.Link href="/LogInPage">Log-in</Nav.Link>
-          <Nav.Link eventKey={2} href="Chat">
-            Chat
-          </Nav.Link>
         </Nav>
       </Navbar.Collapse>
     </Navbar>

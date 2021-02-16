@@ -24,6 +24,15 @@ import {
 //   height: '100vh'
 //   //background position cover...
 
+// const PrivateRoute = ( ) => {
+//   if(user !== null) {
+//     return <Route   />;
+//   }
+//   else {
+//     return <Redirect to="/login" />
+//   }
+// }
+
 
 //entire App with all pages:
 function App() {

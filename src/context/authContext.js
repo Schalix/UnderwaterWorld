@@ -1,5 +1,5 @@
 
-import React, { createContext, useState } from 'react'
+import React, { createContext, useState, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
 
 import firebase from '../firebaseConfig'
@@ -25,6 +25,17 @@ export const AuthContextProvider = ({ children }) => {
     let history = useHistory()
     const db = firebase.firestore();
 
+    useEffect(() => {
+        firebase.auth().onAuthStateChanged(function (user) {
+            if (user) {
+                setUser({ email: user.email, displayName: user.displayName })
+                setIsAuthenticated(true)
+            } else {
+                // No user is signed in.
+            }
+        });
+    }, [])
+
     const register = ({ email, password, name }) => {
         //register with email and password
         firebase.auth().createUserWithEmailAndPassword(email, password)
@@ -32,9 +43,19 @@ export const AuthContextProvider = ({ children }) => {
                 // Signed in 
                 let user = userCredential.user;
                 console.log('user', user)
+
+                // Add a new document in collection "users"
+                user.updateProfile({
+                    displayName: name,
+                }).then(function () {
+                    // Update successful.
+                    const { email, displayName } = user
+                    setUser({ email, displayName })
+                    setIsAuthenticated(true)
+                }).catch(function (error) {
+                    // An error happened.
+                });
                 
-                setUser(user)
-                setIsAuthenticated(true)
                 db.collection("users").doc(user.uid).set({
                     name, 
                     // favourites: []
@@ -45,6 +66,10 @@ export const AuthContextProvider = ({ children }) => {
                 .catch(function (error) {
                         console.error("Error writing user document: ", error);
                 });
+
+                history.push('/')
+                
+                
             })
     
             .catch((error) => {

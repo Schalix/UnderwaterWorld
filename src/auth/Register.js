@@ -1,12 +1,13 @@
 import React, { useState, useContext } from 'react'
 import { Form, Button } from "react-bootstrap";
 import { AuthContext } from '../context/authContext'
+import { Redirect } from "react-router-dom";
 
 
 
 const RegisterContent = () => {
     const [state, setState] = useState({ email: "", password: "", name: "" })
-    const { register } = useContext(AuthContext)
+    const { register, isAuthenticated } = useContext(AuthContext)
 
     const handleChange = (e) => {
         setState({ ...state, [e.target.name]: e.target.value });
@@ -17,6 +18,8 @@ const RegisterContent = () => {
         console.log('AuthState:', state)
         register(state)
     }
+
+    if(isAuthenticated) return(<Redirect to="/" />)
 
     return (
         <div>

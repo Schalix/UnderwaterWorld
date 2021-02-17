@@ -4,6 +4,7 @@ import List from './components/List'
 import DetailPage from './components/DetailPage'
 import Header from './components/Header'
 import LogInContent from './auth/LogInPage'
+import LogOut from './auth/LogOut'
 import RegisterContent from './auth/Register'
 import { AuthContextProvider } from './context/authContext'
 
@@ -58,6 +59,9 @@ function App() {
               </Route>
               <Route exact path="/LogInPage">
                 <LogInContent />
+              </Route>
+              <Route exact path="/LogOut">
+                <LogOut />
               </Route>
             </Switch>
           </FishdataContextProvider>

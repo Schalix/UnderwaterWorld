@@ -33,7 +33,7 @@ const LogInContent = () => {
                     <Form.Control type="password" placeholder="Password" onChange={handleChange} value={state.password} name="password"/>
                 </Form.Group>
                 <Button variant="primary" type="submit">
-                    Log In
+                    Log-in 
                 </Button>
             </Form>
         </div>

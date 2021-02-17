@@ -8,7 +8,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 export default function Header() {
   return (
     <Navbar collapseOnSelect expand={false} bg="dark" variant="dark">
-      <Navbar.Brand href="#home">
+      <Navbar.Brand href="/">
         {/* <Logo
           alt=""
           width="30"
@@ -26,6 +26,7 @@ export default function Header() {
         <Nav>
           <Nav.Link href="/Register">Register</Nav.Link>
           <Nav.Link href="/LogInPage">Log-in</Nav.Link>
+          <Nav.Link href="/LogOut">Log-out</Nav.Link>
         </Nav>
       </Navbar.Collapse>
     </Navbar>

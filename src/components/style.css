@@ -9,7 +9,7 @@ nav .navbar-collapse {
     background: #343a40;
     right: -100%;
     width: 8rem;
-    height: 11rem;
+    height: 13rem;
     display: block;
     transition: right 0.3s ease;
 }

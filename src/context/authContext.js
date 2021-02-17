@@ -31,6 +31,7 @@ export const AuthContextProvider = ({ children }) => {
                 setUser({ email: user.email, displayName: user.displayName })
                 setIsAuthenticated(true)
             } else {
+                // console.log('not signed in')
                 // No user is signed in.
             }
         });
@@ -96,9 +97,19 @@ export const AuthContextProvider = ({ children }) => {
         //use login function to get the user and sve it in store
     }
 
+    const logout = () => {
+        firebase.auth().signOut().then(() => {
+        // Sign-out successful.
+            console.log('sign out success')
+            setIsAuthenticated(false)
+        }).catch((error) => {
+        // An error happened.
+        });
+    }
+
 
 return (
-    <AuthContext.Provider value={{ user, register, login, isAuthenticated }}>
+    <AuthContext.Provider value={{ user, register, login, logout, isAuthenticated }}>
         {children}
     </AuthContext.Provider>
 )

@@ -17,8 +17,7 @@ const DetailPage = () => {
 
     return (
         <div>
-            { !loading ? <div><div>Scientific Names:</div>
-                    {fishdatadet.scientificname &&
+            { !loading ? <div>{fishdatadet.scientificname &&
                         <h3>Species: {fishdatadet.scientificname}</h3>
                 }
                 {fishdatadet.rank && 
